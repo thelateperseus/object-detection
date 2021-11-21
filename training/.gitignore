@@ -1,0 +1,6 @@
+/images/*
+/exported-models/*
+/models/*
+/pre-trained-models/*
+
+!/models/ssd_mobilenet_v2_320x320_ball/pipeline.config
