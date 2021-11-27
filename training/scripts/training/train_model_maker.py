@@ -27,4 +27,4 @@ model = object_detector.create(train_data, model_spec=spec, batch_size=8, train_
 
 model.export(export_dir='.')
 
-# model.evaluate_tflite('model.tflite', test_data)
+model.evaluate_tflite('model.tflite', test_data)

@@ -62,7 +62,7 @@ def apply_non_max_suppression(detections, iou_thresh=0.5, score_thresh=0.6):
     }
 
 
-PATH_TO_LABELS = './exported-models/ssd_mobilenet_v2_320x320_ball_tflite/ball_label_map.pbtxt'
+PATH_TO_LABELS = '../training/annotations/label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
 
 print('Loading model...', end='')
@@ -70,7 +70,7 @@ start_time = time.time()
 
 # Load saved model and build the detection function
 #PATH_TO_SAVED_MODEL = './model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/saved_model'
-PATH_TO_SAVED_MODEL = './exported-models/ssd_mobilenet_v2_320x320_ball_tflite/saved_model'
+PATH_TO_SAVED_MODEL = '../training/exported-models/ssd_mobilenet_v2_320x320_ball3/saved_model'
 detect_fn = tf.saved_model.load(PATH_TO_SAVED_MODEL)
 
 end_time = time.time()
@@ -138,10 +138,10 @@ while(True):
 
     out.write(image)
     frameCount +=1 
-    #cv2.imshow("image", image)
-    #key = cv2.waitKey(1) & 0xFF
-    #if key == ord("q"):
-    #    break
+    cv2.imshow("image", image)
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord("q"):
+        break
 
 end_time = time.time()
 elapsed_time = end_time - start_time

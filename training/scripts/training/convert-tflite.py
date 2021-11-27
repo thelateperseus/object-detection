@@ -32,16 +32,14 @@ def representative_dataset():
 
 def representative_dataset2():
   train_ds = tf.keras.utils.image_dataset_from_directory(
-      pathlib.Path('./images/all'),
+      './images/all',
       labels=None,
       label_mode=None,
       image_size=(300, 300),
       batch_size=200)
-  # images = tf.cast(train_ds[0], tf.float32) / 255.0
+  print(train_ds)
   # train_ds_tensors = tf.data.Dataset.from_tensor_slices((train_ds)).batch(1)
   # print(train_ds_tensors)
-  # dataset = tf.data.TFRecordDataset('annotations/train.record')
-  # print(dataset)
   for input_value in train_ds:
     yield [input_value]
   # for image_batch in train_ds_tensors:

@@ -1,2 +1,7 @@
 *.avi
 __pycache__/
+/Include/
+/Lib/
+/Scripts/
+/share/
+/pyvenv.cfg
